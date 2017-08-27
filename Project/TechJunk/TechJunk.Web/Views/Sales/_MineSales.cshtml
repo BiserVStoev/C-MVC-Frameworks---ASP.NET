@@ -1,0 +1,44 @@
+﻿
+@using PagedList.Mvc
+@using TechJunk.Web.Helpers
+@model PagedList.IPagedList<TechJunk.Models.ViewModels.Sales.ShortSaleVm>
+
+<div class="sales-container profile-sales-fix">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th></th>
+            <th>@Html.Name("Title")</th>
+            <th>@Html.Name("Category")</th>
+            <th>@Html.Name("Price")</th>
+            <th>@Html.Name("Date posted")</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var sale in Model)
+        {
+            <tr>
+                <div class="sale-img"><td>@Html.Image(sale.Url, "Sale Image")</td></div>
+                <td>@Html.DisplayFor(vm => sale.Title)</td>
+                <td>@Html.DisplayFor(vm => sale.Category)</td>
+                <td>@Html.DisplayFor(vm => sale.Price)$</td>
+                <td>@Html.DisplayFor(vm => sale.PostDate)</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Sales", new { id = sale.Id }, new { @class = "btn btn-info btn-lg" })
+                    @Html.ActionLink("Edit", "Edit", "Sales", new { id = sale.Id }, new { @class = "btn btn-warning btn-lg" })
+                    @Html.ActionLink("Delete", "Delete", "Sales", new { id = sale.Id }, new { @class = "btn btn-danger btn-lg" })
+
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+@Html.PagedListPager(Model, pageNumber => Url.Action("Mine", new
+{
+    pageNumber,
+    option = Request.QueryString["Category"],
+    search = Request.QueryString["search"]
+}))

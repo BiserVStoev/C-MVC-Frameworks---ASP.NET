@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Add Blog";
+}
+
+<h2>Add Blog</h2>
+
+@using (Html.BeginForm())
+{
+    <input type="text" name="title"/>
+    <textarea rows="10" cols="30" name="Content"></textarea>
+
+    <input type="submit" value="Add"/>
+}
+

@@ -1,0 +1,64 @@
+﻿@model TechJunk.Models.ViewModels.Users.ProfileVm
+@{
+    ViewBag.Title = "Profile Page";
+}
+
+<div class="container container-fluid container-profile-info">
+    <div class="row info-prof">
+        <div class="col-md-4 profile-menu">
+            <div>
+                <img src="@Model.ProfilePictureUrl" alt="profileImage" class="profile-picture"/>
+            </div>
+            <div class="profile-nav">
+                @Html.ActionLink("My Sales", "Mine", "Sales")
+            </div>
+            <div class="profile-nav">
+                @Html.ActionLink("My Interests", "Mine", "Interests")
+            </div>
+            <div class="profile-nav">
+                @Html.ActionLink("Edit profile", "Edit")
+            </div>
+            <div class="profile-nav">
+                @Html.ActionLink("Change your password", "ChangePassword", "Manage")
+            </div>
+        </div>
+        <div class="col-md-8 profile-info">
+            <h1 class="profile-title">My Profile</h1>
+            <div class="row">
+                <div class="col-md-4"><strong>@Html.DisplayNameFor(vm => vm.Name):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Name)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><strong>@Html.DisplayNameFor(vm => vm.Email):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Email)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.PhoneNumber):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.PhoneNumber)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.Address):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Address)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="top-sales">
+    <h1>My most recent sales</h1>
+</div>
+
+
+@Html.Partial("~/Views/Sales/_ProfileSales.cshtml", Model.Sales)
+
+<div class="top-interests">
+    <h1>My most recent interests</h1>
+</div>
+
+@Html.Partial("~/Views/Interests/_ProfileInterests.cshtml", Model.Interests)

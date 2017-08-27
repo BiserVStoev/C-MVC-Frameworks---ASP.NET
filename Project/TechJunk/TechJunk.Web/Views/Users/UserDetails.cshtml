@@ -1,0 +1,60 @@
+﻿@model TechJunk.Models.ViewModels.Users.ProfileVm
+@{
+    ViewBag.Title = "User profile details";
+}
+
+<h2 class="top-sales">User Details</h2>
+
+<div class="container container-fluid container-profile-info">
+    <div class="row info-prof">
+        <div class="col-md-4 profile-menu">
+            <div>
+                <img src="@Model.ProfilePictureUrl" alt="profileImage" class="profile-picture" />
+            </div>
+        </div>
+        <div class="col-md-8 profile-info">
+            <h1 class="profile-title">@Model.Name's Profile</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.Name):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Name)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.Email):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Email)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.PhoneNumber):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.PhoneNumber)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.Address):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Address)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-user-btn">
+    @Html.ActionLink("Contact user", "Message", "Messages", new { userId = ViewBag.UserId }, new { @class = "btn btn-lg btn-primary" })
+</div>
+
+<div class="top-sales user-details">
+    <h1>Most recent sales</h1>
+</div>
+@Html.Partial("~/Views/Sales/_UserTopSales.cshtml", Model.Sales)
+@Html.ActionLink("User's all sales", "UserSales", "Sales", new {id = ViewBag.UserId }, new { @class = "btn btn-lg btn-default"})
+
+<div class="top-interests">
+    <h1>Most recent interests</h1>
+</div>
+
+@Html.Partial("~/Views/Interests/_UserTopInterests.cshtml", Model.Interests)
+@Html.ActionLink("User's all interest", "UserInterests", "Interests", new { id = ViewBag.UserId }, new { @class = "btn btn-lg btn-default" })

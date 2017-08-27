@@ -1,0 +1,79 @@
+﻿@model TechJunk.Models.ViewModels.Admin.DetailedUserVm
+@{
+    ViewBag.Title = "User Details";
+}
+
+<div class="container-user-details">
+    <div class="row info-prof">
+        <div class="col-md-4 profile-menu">
+            <div>
+                <img src="@Model.ProfilePictureUrl" alt="profileImage" class="profile-picture" />
+            </div>
+        </div>
+        <div class="col-md-8 profile-info">
+            <h1 class="profile-title">@Model.Name's Details</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.Name):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Name)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.Email):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Email)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.PhoneNumber):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.PhoneNumber)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>@Html.DisplayNameFor(vm => vm.Address):</strong>
+                </div>
+                <div class="col-md-6">@Html.DisplayFor(vm => vm.Address)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-user-btn">
+    @if (Model.IsBanned == false)
+    {
+        @Html.ActionLink("Ban User", "Ban", "Users", new { userId = Model.Id }, new { @class = "btn btn-lg btn-danger" })
+    }
+    else
+    {
+        @Html.ActionLink("Unban User", "UnBan", "Users", new { userId = Model.Id }, new { @class = "btn btn-lg btn-success" })
+    }
+</div>
+
+<h2>Roles: @Model.Roles</h2>
+
+<div class="row">
+    <div class="give-user-role-container col-md-5 col-md-offset-1">
+        @using (Html.BeginForm("AssignRole", "Users", FormMethod.Post))
+        {
+            @Html.HiddenFor(vm => vm.Id)
+            <div class="add-role-container">
+                @Html.DropDownList("Roles", ViewBag.Roles as SelectList, new { @class = "form-control" })
+                <input type="submit" value="Assign Role" class="btn btn-lg btn-success" />
+            </div>
+        }
+    </div>
+    
+    <div class="give-user-role-container col-md-5">
+        @using (Html.BeginForm("DeassignRole", "Users", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(vm => vm.Id)
+            <div class="add-role-container">
+                @Html.DropDownList("Roles", ViewBag.Roles as SelectList, new { @class = "form-control" })
+                <input type="submit" value="Deassign Role" class="btn btn-lg btn-danger" />
+            </div>
+        }
+    </div>
+</div>

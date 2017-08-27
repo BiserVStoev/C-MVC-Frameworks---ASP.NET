@@ -1,0 +1,18 @@
+﻿@model PagedList.IPagedList<TechJunk.Models.ViewModels.Interest.InterestVm>
+@{
+    ViewBag.Title = $"{ViewBag.UserEmail}'s Interests";
+}
+
+<h2 class="user-interests-title">@ViewBag.UserEmail's Interests</h2>
+
+<div class="search-wrapper">
+    @using (Html.BeginForm("UserInterests", "Interests", new { area = "", userId = ViewBag.UserId }, FormMethod.Get))
+    {
+        <strong> Search sales by Title and Category: </strong>
+        @Html.TextBox("search", null, new { @class = "form-control" })
+        @Html.EnumDropDownListFor(vm => vm.First().Category, "All", new { @class = "form-control" })
+        <input type="submit" name="submit" value="Search" class="btn btn-default btn-md" />
+    }
+</div>
+
+@Html.Partial("_Interests", Model)

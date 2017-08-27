@@ -1,0 +1,40 @@
+﻿@model TechJunk.Models.ViewModels.Messages.DetailedMessageVm
+@{
+    ViewBag.Title = "Message Details";
+}
+
+<h2 class="sale-details">Message Details</h2>
+
+<div class="sales-container">
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.Topic):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.Topic)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.Description):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.Description)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.SenderEmail):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.SenderEmail)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.RecieverEmail):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.RecieverEmail)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.DateMade):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.DateMade)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 col-lg-offset-4">
+            @Html.ActionLink("Sender Details", "Details", "Users", new { userId = Model.SenderId }, new { @class = "btn btn-lg btn-info" })
+            @Html.ActionLink("Reciever Details", "Details", "Users", new {id = Model.RecieverId}, new {@class = "btn btn-lg btn-info"})
+        </div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 col-lg-offset-4 contact-re">
+            @Html.ActionLink("Message Again", "ReMessage", "Messages", new { firstId = Model.SenderId, secondId = Model.RecieverId }, new { @class = "btn btn-lg btn-primary" })
+        </div>
+    </div>
+</div>

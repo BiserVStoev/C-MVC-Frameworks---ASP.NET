@@ -1,0 +1,50 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<TechJunk.Models.ViewModels.Admin.ShortUserDetails>
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+
+<div class="search-wrapper">
+    @using (Html.BeginForm("Users", "Users", new { area = "Admin" }, FormMethod.Get))
+    {
+        <strong> Search users by email: </strong>
+        @Html.TextBox("search", null, new { @class = "form-control input-center" })
+        <input type="submit" name="submit" value="Search" class="btn btn-default btn-md" />
+    }
+</div>
+
+<div class="sales-container profile-sales-fix">
+<table class="table table-striped table-bordered users-table">
+    <thead>
+        <tr>
+            <th>@Html.Name("Email")</th>
+            <th>@Html.Name("Sales posted")</th>
+            <th>@Html.Name("Interests posted")</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(vm => user.Email)</td>
+                <td>@Html.DisplayFor(vm => user.NumberOfSales)</td>
+                <td>@Html.DisplayFor(vm => user.NumberOfInterests)</td>
+                <td>
+                    @Html.ActionLink("Details", "UserDetails", new { userId = user.Id }, new { @class = "btn btn-info btn-lg" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+
+@Html.PagedListPager(Model, pageNumber => Url.Action("Users", new
+{
+    pageNumber,
+    search = Request.QueryString["search"]
+}))
+

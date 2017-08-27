@@ -1,0 +1,338 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.sales-container .row .sale-name {
+    text-align: right;
+}
+
+.sale-info {
+    text-align: left;
+}
+
+.sales-row {
+    margin-bottom: 15px;
+}
+
+.detailed-sale-picture, .contact-re {
+    text-align: center;
+}
+
+.sale-details {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.sales-title, .title, .interests-title, .user-details-title, .messages-title {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.user-sales-title, .user-interests-title {
+    text-align: center;
+}
+
+.btn-center {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.add-label-fix {
+    text-align: center;
+}
+
+.input-center {
+    margin: 0 auto;
+}
+
+.add-sale-title, .edit-profile-title, .profile-title, .edit-sale-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.profile-title {
+    text-decoration: underline;
+    margin-bottom: 35px;
+}
+
+html body div.form-group .file-to-pad {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.delete-feedback-btn {
+    margin-top: 20px;
+}
+
+.feedback-diff-container {
+    margin: 25px 0px;
+}
+@media screen and (max-width: 1200px) {
+    .sale-name {
+        display: inline-block;
+    }
+    .sale-info {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .nav-stacked li {
+        text-align: center;
+    }
+
+    .admin-content .feedback-respond-container {
+        border-left: none;
+    }
+
+    .feedback-info-container {
+        border-bottom: 1px solid black;
+        margin-bottom: 10px;
+    }
+
+    .delete-feedback-btn {
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        border: 0;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    table tr {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+        background: #fff5e7;
+    }
+
+    table td {
+        display: block;
+        text-align: right;
+        font-size: 13px;
+        border-bottom: 2px solid #ccc;
+    }
+
+        table td:last-child {
+            border-bottom: 0;
+        }
+
+    body div table td::before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .sales-container table tbody td:first-child {
+        text-align: center;
+    }
+}
+
+.container-profile-info {
+    border: 1px solid #E95420;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.container-user-details{
+    margin-top: 20px;
+}
+
+.profile-picture {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-top: 25px;
+    border: 2px solid #E95420;
+    margin-bottom: 30px;
+}
+
+.profile-nav {
+    text-align: center;
+}
+
+    .profile-nav a {
+        border: 2px solid;
+        border-radius: 20px;
+        padding: 5px;
+        margin: 20px;
+        display: block;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+.profile-sales-fix {
+    margin-top: 20px;
+}
+
+.table .table-striped .table-bordered {
+    margin-left: 13px;
+}
+
+.profile-menu {
+    text-align: center;
+}
+
+.top-sales, .top-interests {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.profile-info {
+    font-size: 25px;
+}
+
+    .profile-info .row {
+        margin-bottom: 10px;
+        border-bottom: 1px solid black;
+    }
+
+.sale-img {
+    text-align: center;
+}
+
+.double-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.about-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+}
+
+.confirm-deletion {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.delete-margin-fix {
+    margin-left: 15px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.feedback-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .feedback-wrapper h1 {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .feedback-wrapper p {
+        margin-top: 15px;
+        font-size: 20px;
+    }
+
+.field-validation-error {
+    color: red;
+    border-bottom: 1px solid red;
+}
+
+.user-details {
+    margin-bottom: 40px;
+}
+
+aside ul li{
+    list-style: none;
+}
+
+.messages-nav-container {
+    border-right: 1px solid black;
+    text-align: center;
+}
+
+.msg-btn {
+    display: block;
+    margin-top: 10px;
+}
+
+.contact-user-btn {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.admin-content{
+    text-align: center;
+
+}
+
+.give-user-role-container .form-control {
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.users-table thead tr th {
+    text-align: center;
+}
+
+thead th {
+    text-align: center;
+}
+
+.feedback-info-container {
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.feedback-name {
+    font-weight: bold;
+}
+
+.feedback-respond-container {
+    border-left: 1px solid black;
+}
+
+.search-wrapper {
+    margin-top: 10px;
+}
+
+.search-wrapper .btn {
+    margin-top: 10px;
+}

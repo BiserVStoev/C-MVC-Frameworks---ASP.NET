@@ -1,0 +1,41 @@
+﻿@using TechJunk.Web.Helpers
+@model TechJunk.Models.ViewModels.Sales.DeleteSaleVm
+@{
+    ViewBag.Title = "Delete Sale";
+}
+
+<div>
+    <p class="confirm-deletion">Are you sure that you want to delete this Sale?</p>
+</div>
+
+<div class="sales-container profile-sales-fix">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Html.Name("Title")</th>
+                <th>@Html.Name("Category")</th>
+                <th>@Html.Name("Price")</th>
+                <th>@Html.Name("Date posted")</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <div class="sale-img"><td>@Html.Image(Model.Url, "Interest Image")</td></div>
+                <td>@Html.DisplayFor(vm => vm.Title)</td>
+                <td>@Html.DisplayFor(vm => vm.Category)</td>s
+                <td>@Html.DisplayFor(vm => vm.Price)</td>s
+                <td>@Html.DisplayFor(vm => vm.PostDate)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="buttons-container">
+    @Html.ActionLink("Back to my sales", "Mine", null, new { @class = "btn btn-default btn-lg" })
+    @using (Html.BeginForm("DeletePost", "Sales", FormMethod.Post, new { @class = "delete-margin-fix" }))
+    {
+        @Html.HiddenFor(vm => vm.Id)
+        <input type="submit" value="Delete" class="btn btn-lg btn-danger" />
+    }
+</div>

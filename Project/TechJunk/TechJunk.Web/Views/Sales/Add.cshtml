@@ -1,0 +1,58 @@
+﻿@model TechJunk.Models.ViewModels.Sales.AddSaleVm
+@{
+    ViewBag.Title = "Add Sale";
+}
+
+<h2 class="add-sale-title">Add a new sale</h2>
+
+<div class="add-sale-container">
+@using (Html.BeginForm("Add", "Sales", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group add-label-fix">
+        @Html.LabelFor(m => m.Title)
+        @Html.EditorFor(m => m.Title, new { htmlAttributes = new { @class = "form-control input-center", autofocus = "autofocus" } })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+
+    <div class="form-group add-label-fix">
+        @Html.LabelFor(m => m.Category)
+        @Html.EnumDropDownListFor(m => m.Category, "Select a category", new { @class = "form-control input-center" })
+        @Html.ValidationMessageFor(m => m.Category)
+    </div>
+
+    <div class="form-group add-label-fix">
+        <label class="btn btn-default btn-file file-to-pad">
+            Upload Image: <input type="file" name="salePicture" accept=".jpeg,.png,.jpg">
+        </label>
+        <br />
+        @Html.ValidationMessageFor(m => m.SalePicture)
+    </div>
+    <div class="form-group add-label-fix">
+        @Html.LabelFor(m => m.Specification)
+        @Html.TextAreaFor(m => m.Specification, 10, 40, new { @class = "form-control input-center", placeholder = "Describe your sale here" })
+        @Html.ValidationMessageFor(m => m.Specification)
+    </div>
+
+    <div class="form-group add-label-fix">
+        @Html.LabelFor(m => m.Price)
+        @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control input-center" } })
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+
+    <div class="form-group add-label-fix">
+        @Html.LabelFor(m => m.PhoneNumber)
+        @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { @class = "form-control input-center" } })
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
+    </div>
+
+    <div class="form-group add-label-fix">
+        <input type="submit" value="Add Sale" class="btn btn-primary btn-lg" />
+    </div>
+}
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

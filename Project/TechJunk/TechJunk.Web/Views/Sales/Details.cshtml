@@ -1,0 +1,44 @@
+﻿@using TechJunk.Web.Helpers
+@model TechJunk.Models.ViewModels.Sales.DetailedSaleVm
+@{
+    ViewBag.Title = "Sale Details";
+}
+
+<h2 class="sale-details">Sale Details</h2>
+
+<div class="sales-container">
+    <div class="row sales-row">
+        <div class="col-lg-12 detailed-sale-picture"><strong>@Html.Image(Model.Url, "100%", "400px")</strong>
+        </div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.Title):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.Title)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.Category):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.Category)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.Price):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.Price) &#36;</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.Specification):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.Specification)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.PostDate):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.PostDate)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 sale-name"><strong>@Html.DisplayNameFor(vm => vm.PhoneNumber):</strong></div>
+        <div class="col-lg-6">@Html.DisplayFor(vm => vm.PhoneNumber)</div>
+    </div>
+    <div class="row sales-row">
+        <div class="col-lg-4 col-lg-offset-4">
+            @Html.ActionLink("Seller Details", "Details", "Users", new { id = Model.UserId}, new { @class = "btn btn-lg btn-info"})
+            @Html.ActionLink("Contact seller", "Message", "Messages", new { userId = Model.UserId}, new { @class = "btn btn-lg btn-info"})
+        </div>
+    </div>
+</div>

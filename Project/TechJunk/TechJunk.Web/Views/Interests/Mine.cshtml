@@ -1,0 +1,25 @@
+﻿@model PagedList.IPagedList<TechJunk.Models.ViewModels.Interest.InterestVm>
+@{
+    ViewBag.Title = "My Sales";
+}
+
+<div class="top-sales">
+    <h1>My interests</h1>
+</div>
+
+<div>
+    @Html.ActionLink("Add Interest", "Add", null, new { @class = "btn btn-lg btn-success" })
+</div>
+
+<div class="search-wrapper">
+    @using (Html.BeginForm("Mine", "Interests", new { area = "" }, FormMethod.Get))
+    {
+        <strong> Search sales by Title and Category: </strong>
+        @Html.TextBox("search", null, new { @class = "form-control" })
+        @Html.EnumDropDownListFor(vm => vm.First().Category, "All", new { @class = "form-control" })
+        <input type="submit" name="submit" value="Search" class="btn btn-default btn-md" />
+    }
+</div>
+
+@Html.Partial("~/Views/Interests/_ProfileInterests.cshtml", Model)
+

@@ -1,0 +1,42 @@
+Request log: 
+Request income time: 17-Apr-17 20:51:19
+Request outcome time: 17-Apr-17 20:51:22
+Request timespan: 00:00:02.6490326
+Request URL: http://localhost:63800/
+----------------------------------------
+Request log: 
+Request income time: 17-Apr-17 20:51:22
+Request outcome time: 17-Apr-17 20:51:22
+Request timespan: 00:00:00.0020010
+Request URL: http://localhost:63800/Scripts/bootstrap.js
+----------------------------------------
+Request log: 
+Request income time: 17-Apr-17 20:51:22
+Request outcome time: 17-Apr-17 20:51:22
+Request timespan: 00:00:00.0010007
+Request URL: http://localhost:63800/Content/bootstrap.css
+----------------------------------------
+Request log: 
+Request income time: 17-Apr-17 20:51:22
+Request outcome time: 17-Apr-17 20:51:22
+Request timespan: 00:00:00
+Request URL: http://localhost:63800/Scripts/respond.js
+----------------------------------------
+Request log: 
+Request income time: 17-Apr-17 20:51:22
+Request outcome time: 17-Apr-17 20:51:22
+Request timespan: 00:00:00.0005006
+Request URL: http://localhost:63800/Scripts/modernizr-2.8.3.js
+----------------------------------------
+Request log: 
+Request income time: 17-Apr-17 20:51:23
+Request outcome time: 17-Apr-17 20:51:23
+Request timespan: 00:00:00.0005006
+Request URL: http://localhost:63800/Scripts/jquery-3.1.1.js
+----------------------------------------
+Request log: 
+Request income time: 17-Apr-17 20:51:23
+Request outcome time: 17-Apr-17 20:51:23
+Request timespan: 00:00:00.0100075
+Request URL: http://localhost:63800/__browserLink/requestData/839ef3b0d35544afb9e21d311b4915ba?version=2
+----------------------------------------

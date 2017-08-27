@@ -1,0 +1,25 @@
+﻿@model PagedList.IPagedList<TechJunk.Models.ViewModels.Messages.ShortMessagesVm>
+@{
+    ViewBag.Title = "My Messages";
+}
+
+<h2 class="messages-title">My Messages</h2>
+
+<div class="container container-fluid">
+    <div class="row">
+        <aside class="col-md-3 messages-nav-container">
+            <h3>TechJunkMail</h3>
+            <ul>
+                <li>@Html.ActionLink("Inbox", "Inbox", "Messages", new {@class = $"btn btn-lg btn-default msg-btn {ViewBag.InboxActive}" })</li>
+                <li>@Html.ActionLink("Sent Messages", "Sent", "Messages", new {@class = $"btn btn-lg btn-default msg-btn {ViewBag.SentActive}" })</li>
+            </ul>
+        </aside>
+        <div class="col-md-7 col-md-offset-1">
+            @if (ViewBag.ActionToRender != null)
+            {
+                @Html.Partial("_Inbox")
+            }
+        </div>
+    </div>
+</div>
+

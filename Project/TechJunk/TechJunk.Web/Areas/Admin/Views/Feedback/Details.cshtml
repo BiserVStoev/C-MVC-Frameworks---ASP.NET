@@ -1,0 +1,69 @@
+﻿@model TechJunk.Models.ViewModels.Admin.DetailedFeedbackVm
+@{
+    ViewBag.Title = "Feedback Details";
+}
+
+<h2>Feedback Details</h2>
+
+<div class="row">
+    <div class="col-md-5 feedback-info-container">
+        <div class="feedback-diff-container">
+            <div class="feedback-name">
+                @Html.DisplayNameFor(vm => vm.Topic):
+            </div>
+            <div class="feedback-value">
+                @Html.DisplayFor(vm => vm.Topic)
+            </div>
+        </div>
+
+        <div class="feedback-diff-container">
+            <div class="feedback-name">
+                @Html.DisplayNameFor(vm => vm.Content):
+            </div>
+            <div class="feedback-value">
+                @Html.DisplayFor(vm => vm.Content)
+            </div>
+        </div>
+        
+        <div class="feedback-diff-container">
+            <div class="feedback-name">
+                @Html.DisplayNameFor(vm => vm.UserEmail):
+            </div>
+            <div class="feedback-value">
+                @Html.DisplayFor(vm => vm.UserEmail)
+            </div>
+        </div>
+        
+        <div class="delete-feedback-btn">
+            @Html.ActionLink("Delete Feedback", "Delete", new { feedbackId = Model.Id, area = "Admin" }, new { @class = "btn btn-lg btn-danger"})
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1 feedback-respond-container">
+        @using (Html.BeginForm("Respond", "Feedback", new { area = "Admin"}, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.UserId)
+            <div class="form-group add-label-fix">
+                @Html.LabelFor(m => m.Topic):
+                @Html.EditorFor(m => m.Topic, new { htmlAttributes = new { @class = "form-control input-center", autofocus = "autofocus" } })
+                @Html.ValidationMessageFor(m => m.Topic)
+            </div>
+
+            <div class="form-group add-label-fix">
+                @Html.LabelFor(m => m.Content):
+                @Html.TextAreaFor(m => m.Content, 15, 40, new { @class = "form-control input-center" })
+                @Html.ValidationMessageFor(m => m.Content)
+            </div>
+
+            <div class="form-group add-label-fix">
+                <input type="submit" value="Respond" class="btn btn-primary btn-lg" />
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
