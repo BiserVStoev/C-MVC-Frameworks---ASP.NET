@@ -20,6 +20,8 @@ namespace TechJunk.Data
 
         public virtual DbSet<Feedback> Feedbacks { get; set; }
 
+        public override IDbSet<IdentityRole> Roles { get; set; }
+
         public static TechJunkContext Create()
         {
             return new TechJunkContext();

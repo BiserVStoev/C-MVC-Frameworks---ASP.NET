@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using AutoMapper;
+    using TechJunk.Data.Interfaces;
     using TechJunk.Models.BindingModels.Admin;
     using TechJunk.Models.EntityModels;
     using TechJunk.Models.ViewModels.Admin;
@@ -10,6 +11,10 @@
 
     public class AdminFeedbackService : Service, IAdminFeedbackService
     {
+        public AdminFeedbackService(ITechJunkDbContext context) : base(context)
+        {
+        }
+
         public IEnumerable<ShortFeedbackVm> GetAllFeedbacks()
         {
             var feedbacks = this.Context.Feedbacks;

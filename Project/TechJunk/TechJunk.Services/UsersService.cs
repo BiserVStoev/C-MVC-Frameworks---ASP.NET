@@ -4,6 +4,7 @@
     using System.IO;
     using System.Linq;
     using AutoMapper;
+    using TechJunk.Data.Interfaces;
     using TechJunk.Models.BindingModels.Users;
     using TechJunk.Models.EntityModels;
     using TechJunk.Models.ViewModels.Interest;
@@ -13,6 +14,10 @@
 
     public class UsersService : Service, IUsersService
     {
+        public UsersService(ITechJunkDbContext context) : base(context)
+        {
+        }
+
         public ProfileVm GetCurrentUserProfileVm(string username)
         {
             ApplicationUser currentUser = this.Context.Users.FirstOrDefault(user => user.UserName == username);

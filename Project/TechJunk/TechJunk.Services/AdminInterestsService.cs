@@ -3,12 +3,17 @@
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
+    using TechJunk.Data.Interfaces;
     using TechJunk.Models.EntityModels;
     using TechJunk.Models.ViewModels.Interest;
     using TechJunk.Services.Interfaces;
 
     public class AdminInterestsService : Service, IAdminInterestsService
     {
+        public AdminInterestsService(ITechJunkDbContext context) : base(context)
+        {
+        }
+
         public IEnumerable<InterestVm> GetAllInterests()
         {
             var interests = this.Context.Interests.OrderByDescending(i => i.PostDate).Where(i => i.User.IsBanned == false);

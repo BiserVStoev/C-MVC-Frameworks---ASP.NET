@@ -6,12 +6,18 @@
     using AutoMapper;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using TechJunk.Data;
+    using TechJunk.Data.Interfaces;
     using TechJunk.Models.EntityModels;
     using TechJunk.Models.ViewModels.Admin;
     using TechJunk.Services.Interfaces;
 
     public class AdminUsersService : Service, IAdminUsersService
     {
+        public AdminUsersService(ITechJunkDbContext context) : base(context)
+        {
+        }
+
         public IEnumerable<ShortUserDetails> GetAllUsers()
         {
             IEnumerable<ApplicationUser> users = this.Context.Users.OrderBy(u => u.Email);
@@ -89,14 +95,16 @@
 
         public void AssignRole(string userId, string role)
         {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.Context));
+            //CASTING HERE SMELLS, I KNOW :(
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.Context as TechJunkContext));
             var user = userManager.FindById(userId);
             userManager.AddToRole(userId, role);
         }
 
         public void DeAssignRole(string userId, string role)
         {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.Context));
+            //CASTING HERE SMELLS, I KNOW :(
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.Context as TechJunkContext));
             var user = userManager.FindById(userId);
             userManager.RemoveFromRole(userId, role);
         }

@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using AutoMapper;
+    using TechJunk.Data.Interfaces;
     using TechJunk.Models.BindingModels.Sales;
     using TechJunk.Models.EntityModels;
     using TechJunk.Models.ViewModels.Sales;
@@ -12,6 +13,10 @@
 
     public class SalesService : Service, ISalesService
     {
+        public SalesService(ITechJunkDbContext context) : base(context)
+        {
+        }
+
         public IEnumerable<ShortSaleVm> GetAllSales()
         {
             IEnumerable<Sale> sales = this.Context.Sales.OrderByDescending(sale => sale.PostDate).Where(s => s.User.IsBanned == false);

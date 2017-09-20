@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
+    using TechJunk.Data.Interfaces;
     using TechJunk.Models.BindingModels.Messages;
     using TechJunk.Models.EntityModels;
     using TechJunk.Models.ViewModels.Messages;
@@ -11,6 +12,10 @@
 
     public class MessagesService : Service, IMessagesService
     {
+        public MessagesService(ITechJunkDbContext context) : base(context)
+        {
+        }
+
         public IEnumerable<ShortMessagesVm> GetInboxMessages(string userId)
         {
             var messages = this.Context.Users.Find(userId)

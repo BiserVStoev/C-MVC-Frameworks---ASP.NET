@@ -3,12 +3,17 @@
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
+    using TechJunk.Data.Interfaces;
     using TechJunk.Models.EntityModels;
     using TechJunk.Models.ViewModels.Sales;
     using TechJunk.Services.Interfaces;
 
     public class AdminSalesService : Service, IAdminSalesService
     {
+        public AdminSalesService(ITechJunkDbContext context) : base(context)
+        {
+        }
+
         public IEnumerable<ShortSaleVm> GetAllSales()
         {
             IEnumerable<Sale> sales = this.Context.Sales.OrderByDescending(sale => sale.PostDate).Where(s => s.User.IsBanned == false);

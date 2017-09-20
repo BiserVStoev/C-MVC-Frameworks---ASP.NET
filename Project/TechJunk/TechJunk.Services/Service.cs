@@ -1,14 +1,14 @@
 ﻿namespace TechJunk.Services
 {
-    using TechJunk.Data;
+    using TechJunk.Data.Interfaces;
 
-    public class Service
+    public abstract class Service
     {
-        public Service()
+        public Service(ITechJunkDbContext context)
         {
-            this.Context = new TechJunkContext();
+            this.Context = context;
         }
 
-        protected TechJunkContext Context { get; }
+        protected ITechJunkDbContext Context { get; }
     }
 }

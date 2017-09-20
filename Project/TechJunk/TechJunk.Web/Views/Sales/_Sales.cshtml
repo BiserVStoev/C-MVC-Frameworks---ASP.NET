@@ -19,10 +19,10 @@
         {
             <tr>
                 <div class="sale-img"><td>@Html.Image(sale.Url, "Sale Image")</td></div>
-                <td>@Html.DisplayFor(vm => sale.Title)</td>
-                <td>@Html.DisplayFor(vm => sale.Category)</td>
-                <td>@Html.DisplayFor(vm => sale.Price)$</td>
-                <td>@Html.DisplayFor(vm => sale.PostDate)</td>
+                <td data-label="Title">@Html.DisplayFor(vm => sale.Title)</td>
+                <td data-label="Category">@Html.DisplayFor(vm => sale.Category)</td>
+                <td data-label="Price">@Html.DisplayFor(vm => sale.Price)$</td>
+                <td data-label="Post Date">@Html.DisplayFor(vm => sale.PostDate)</td>
                 <td>
                     @Html.ActionLink("Details", "Details", new {id = sale.Id}, new {@class = "btn btn-info btn-lg"})
                 </td>

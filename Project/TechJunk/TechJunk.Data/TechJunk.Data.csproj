@@ -65,6 +65,7 @@
     <Compile Include="Mocks\FakeFeedbacksDbSet.cs" />
     <Compile Include="Mocks\FakeInterestsDbSet.cs" />
     <Compile Include="Mocks\FakeMessagesDbSet.cs" />
+    <Compile Include="Mocks\FakeRolesDbSet.cs" />
     <Compile Include="Mocks\FakeSalesDbSet.cs" />
     <Compile Include="Mocks\FakeTechJunkDbContext.cs" />
     <Compile Include="Mocks\FakeUsersDbSet.cs" />
