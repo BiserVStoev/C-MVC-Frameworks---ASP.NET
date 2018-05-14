@@ -45,7 +45,14 @@
                 salesVms = this.service.GetAllSalesByCategoryAndTitle(int.Parse(category), search).ToPagedList(pageNumber ?? 1, 10);
             }
 
-            return this.View(salesVms);
+
+            SalesIndexVm indexVm = new SalesIndexVm()
+            {
+                Sales = salesVms,
+                Category = Models.Enums.Category.Other
+            };
+
+            return this.View(indexVm);
         }
 
         [HttpGet]

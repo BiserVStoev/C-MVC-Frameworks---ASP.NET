@@ -99,6 +99,7 @@
     <Compile Include="ViewModels\Admin\DetailedUserVm.cs" />
     <Compile Include="ViewModels\Admin\ShortFeedbackVm.cs" />
     <Compile Include="ViewModels\Admin\ShortUserDetails.cs" />
+    <Compile Include="ViewModels\Interest\InterestsIndexVm.cs" />
     <Compile Include="ViewModels\Messages\AddMessageVm.cs" />
     <Compile Include="ViewModels\Messages\DeleteMessageVm.cs" />
     <Compile Include="BindingModels\Sales\AddSaleBm.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Sales\AddSaleVm.cs" />
     <Compile Include="ViewModels\Sales\EditSaleVm.cs" />
+    <Compile Include="ViewModels\Sales\SalesIndexVm.cs" />
     <Compile Include="ViewModels\Sales\ShortSaleVm.cs" />
     <Compile Include="ViewModels\Users\EditUserVm.cs" />
     <Compile Include="ViewModels\Users\ProfileVm.cs" />

@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<TechJunk.Models.ViewModels.Sales.ShortSaleVm>
+﻿@model TechJunk.Models.ViewModels.Sales.SalesIndexVm
 @{
     ViewBag.Title = "All Sales";
 }
@@ -17,9 +17,9 @@
     {
         <strong> Search sales by Title and Category: </strong>
         @Html.TextBox("search", null, new { @class = "form-control" })
-        @Html.EnumDropDownListFor(vm => vm.First().Category, "All", new { @class = "form-control" })     
+        @Html.EnumDropDownListFor(vm => vm.Category, "All", new { @class = "form-control" })     
         <input type="submit" name="submit" value="Search" class="btn btn-default btn-md" />
     }
 </div>
 
-@Html.Partial("_Sales", Model)
+@Html.Partial("_Sales", Model.Sales)

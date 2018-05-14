@@ -5,6 +5,7 @@
     using System.Web.Mvc;
     using AutoMapper;
     using Microsoft.AspNet.Identity;
+    using Models.Enums;
     using PagedList;
     using TechJunk.Models.BindingModels.Interests;
     using TechJunk.Models.ViewModels.Interest;
@@ -44,7 +45,13 @@
                 vms = this.service.GetAllInterestsByCategoryAndTitle(int.Parse(category), search).ToPagedList(pageNumber ?? 1, 10);
             }
 
-            return this.View(vms);
+            InterestsIndexVm indexVm = new InterestsIndexVm()
+            {
+                Interests = vms,
+                Category = Category.Other
+            };
+
+            return this.View(indexVm);
         }
 
         [HttpGet]
